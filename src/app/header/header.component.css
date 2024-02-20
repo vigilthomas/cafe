@@ -1,0 +1,14 @@
+.banner1 {
+  display: flex;
+  justify-content: center;
+}
+.banner2 {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-img {
+  
+  width: 60%;
+  height: fit-content;
+}

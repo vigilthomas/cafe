@@ -1,0 +1,11 @@
+<div class="row">
+
+    <div class="col-6">
+        <img src="/assets/banner.png" class="banner-img d-flex justify-content-center p-5">
+    </div>
+    <div class="col-6 d-flex flex-column  justify-content-center align-items-center">
+        <input type="text" class="form-control" (input)="enteredname($event)" placeholder="Enter your name..." required>
+        <button class="btn btn-warning mt-3" type="submit" (click)="displayname()">Order now</button>
+        <h2 class="text-danger" [hidden]="status">{{cname}}</h2>
+    </div>
+</div>
