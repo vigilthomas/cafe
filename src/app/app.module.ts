@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { ABCCafeComponent } from './abc-cafe/abc-cafe.component';
-import { ProductsComponent } from './products/products.component';
+import { OrderComponent } from './order/order.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ProductsComponent } from './products/products.component';
     NavComponent,
     HeaderComponent,
     ABCCafeComponent,
-    ProductsComponent
+    OrderComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
