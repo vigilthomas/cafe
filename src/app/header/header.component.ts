@@ -6,15 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-  cname: string = '';
-  status: boolean = true;
-
-  enteredname(eventData: Event) {
-    this.cname = (<HTMLInputElement>eventData.target).value;
-  }
-  displayname() {
-    this.status = false;
-  }
-
-
+  cname: string = 'Ann';
 }

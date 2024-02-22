@@ -1,8 +1,41 @@
 <div class="" style="height: 100vh;">
+
     <app-nav></app-nav>
+    <app-banner></app-banner>
     <app-header></app-header>
+    <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 
-    <app-search></app-search>
-    <app-menu></app-menu>
+    <app-filter [allitems]="getTotalproducts()" [drinks]="getDrinkproducts()" [foods]="getFoodProducts()"
+        (filterRadioButtonSelectionChanged)="onFilteredRadioButtonChanged($event)">
+    </app-filter>
 
+    <div class="container">
+        <div class="row d-flex justify-content-lg-start justify-content-between">
+            <ng-container *ngFor="let product of products">
+                <ng-container *ngIf="searchText ==='' || product.name.toLowerCase().includes(searchText)">
+                    <div class="card col-lg-3 col-md-4 col-sm-6 col-12 p-2 border-0"
+                        *ngIf="productCountRadioButton ==='all' || productCountRadioButton === product.type">
+                        <div>
+                            <img [src]="product.img" class="imgcard rounded-4" alt="...">
+                        </div>
+                        <div class="card-body text-center">
+                            <span class="card-text fs-6 fw-bold mx-3 m-2">${{product.price}}</span>
+                            <span class="card-text fs-4 fw-bolder">{{product.name}}</span>
+
+                            <div>
+                                <button *ngIf="product.status === 'available'; else unavailable "
+                                    class="btn btn-warning m-2">Add</button>
+                            </div>
+                            <ng-template #unavailable>
+                                <p class="btn btn-danger m-2 disabled">*Unavailable</p>
+                            </ng-template>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="text-center mt-3">
+            <a href="#" class="btn btn-warning">Confirm Your Order</a>
+        </div>
+    </div>
 </div>

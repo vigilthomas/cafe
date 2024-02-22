@@ -7,7 +7,11 @@ import { NavComponent } from './nav/nav.component';
 import { HeaderComponent } from './header/header.component';
 import { ABCCafeComponent } from './abc-cafe/abc-cafe.component';
 import { OrderComponent } from './order/order.component';
-import { MenuComponent } from './menu/menu.component';
+import { FilterComponent } from './filter/filter.component';
+import { BannerComponent } from './banner/banner.component';
+import { SearchComponent } from './search/search.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +20,12 @@ import { MenuComponent } from './menu/menu.component';
     HeaderComponent,
     ABCCafeComponent,
     OrderComponent,
-    MenuComponent,
+    FilterComponent,
+    BannerComponent,
+    SearchComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
