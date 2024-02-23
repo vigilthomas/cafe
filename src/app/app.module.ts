@@ -11,6 +11,7 @@ import { FilterComponent } from './filter/filter.component';
 import { BannerComponent } from './banner/banner.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
+import { MenuComponent } from './menu/menu.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
     FilterComponent,
     BannerComponent,
     SearchComponent,
+    MenuComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],

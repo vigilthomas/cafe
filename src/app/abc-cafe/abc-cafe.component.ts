@@ -9,28 +9,29 @@ export class ABCCafeComponent {
   products = [
     {
       id: 1,
-      name: 'Iced Coffee',
-      price: 20,
+      name: 'Cappuccino',
+      price: 40,
       status: 'available',
       type: 'drinks',
-      img: '/assets/icedcoffee.jpg',
+      img: '/assets/cappuccino.jpg',
     },
     {
       id: 2,
-      name: 'Tea',
-      price: 10,
-      status: 'available',
-      type: 'drinks',
-      img: '/assets/tea.jpg',
-    },
-    {
-      id: 3,
       name: 'Donuts',
       price: 15,
-      status: 'unavailable',
+      status: 'available',
       type: 'foods',
       img: '/assets/donuts.jpg',
     },
+    {
+      id: 3,
+      name: 'Tea',
+      price: 10,
+      status: 'unavailable',
+      type: 'drinks',
+      img: '/assets/tea.jpg',
+    },
+
     {
       id: 4,
       name: 'Sandwich',
@@ -42,7 +43,7 @@ export class ABCCafeComponent {
 
     {
       id: 5,
-      name: 'Burger',
+      name: 'Chicken Burger',
       price: 70,
       status: 'available',
       type: 'foods',
@@ -56,6 +57,38 @@ export class ABCCafeComponent {
       status: 'unavailable',
       type: 'drinks',
       img: '/assets/cola.jpg',
+    },
+    {
+      id: 7,
+      name: 'Iced Coffee',
+      price: 20,
+      status: 'available',
+      type: 'drinks',
+      img: '/assets/icedcoffee.jpg',
+    },
+    {
+      id: 8,
+      name: 'Veg Burger',
+      price: 70,
+      status: 'unavailable',
+      type: 'foods',
+      img: '/assets/vegburger.jpg',
+    },
+    {
+      id: 9,
+      name: 'Mojito',
+      price: 20,
+      status: 'unavailable',
+      type: 'drinks',
+      img: '/assets/mojito.jpg',
+    },
+    {
+      id: 10,
+      name: 'Cocktail',
+      price: 20,
+      status: 'available',
+      type: 'drinks',
+      img: '/assets/cocktail.jpg',
     },
   ];
 
@@ -81,5 +114,22 @@ export class ABCCafeComponent {
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
     console.log(this.searchText);
+  }
+
+  itemname: string = '';
+
+  selectedItemsList: string[] = [];
+
+  onItemsAdded(itemname: string) {
+    this.selectedItemsList.push(itemname);
+    this.itemname = itemname;
+    console.log(this.itemname);
+  }
+
+  userList: string[] = [];
+
+  onAddUser(event: string) {
+    this.userList.push(event);
+    console.log(this.userList);
   }
 }
