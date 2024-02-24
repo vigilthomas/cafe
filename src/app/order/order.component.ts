@@ -6,5 +6,13 @@ import { Component, Input } from '@angular/core';
   styleUrl: './order.component.css',
 })
 export class OrderComponent {
-  @Input() items: string []= [];
+  @Input() items: string[] = [];
+  @Input() noOfItems: any;
+
+  ngOnChanges(){
+    this.test()
+  }
+  test(){ 
+    console.log(this.noOfItems);
+  }
 }

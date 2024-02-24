@@ -117,19 +117,19 @@ export class ABCCafeComponent {
   }
 
   itemname: string = '';
+  noOfItems=0;
 
   selectedItemsList: string[] = [];
 
   onItemsAdded(itemname: string) {
     this.selectedItemsList.push(itemname);
     this.itemname = itemname;
-    console.log(this.itemname);
+    this.noOfItems= this.selectedItemsList.length
   }
 
   userList: string[] = [];
 
   onAddUser(event: string) {
     this.userList.push(event);
-    console.log(this.userList);
   }
 }

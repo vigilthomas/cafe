@@ -4,12 +4,11 @@
     <app-banner></app-banner>
     <app-header></app-header>
 
-
-    <app-menu (userAdded)="onAddUser($event)">
-    </app-menu>
-    <div *ngFor="let u of userList" class="d-flex justify-content-center">
-        <p>{{u}}</p>
-    </div>
+    <!-- <app-menu (userAdded)="onAddUser($event)">
+        <div *ngFor="let u of userList" class="d-flex justify-content-center">
+            <p>{{u}}</p>
+        </div>
+    </app-menu> -->
 
     <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 
@@ -18,10 +17,10 @@
     </app-filter>
 
     <div class="container">
-        <div class="row d-flex justify-content-lg-start justify-content-between">
+        <div class="row d-flex justify-content-lg-start ">
             <ng-container *ngFor="let product of products">
                 <ng-container *ngIf="searchText ==='' || product.name.toLowerCase().includes(searchText)">
-                    <div class="card col-lg-2 col-md-3 col-sm-4 col-6 p-2 border-0"
+                    <div class="card col-lg-3 col-md-3 col-sm-4 col-6 p-2 border-0"
                         *ngIf="productCountRadioButton ==='all' || productCountRadioButton === product.type">
                         <div>
                             <img [src]="product.img" class="imgcard rounded-4" alt="...">
@@ -43,7 +42,9 @@
             </ng-container>
         </div>
     </div>
-    <app-order [items]="selectedItemsList">
-
+    <hr>
+    <app-order [items]="selectedItemsList" [noOfItems]="noOfItems" appRenderHight>
     </app-order>
+    <hr>
+
 </div>

@@ -12,6 +12,7 @@ import { BannerComponent } from './banner/banner.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from './menu/menu.component';
+import { RenderHightDirective } from './directives/render-hight.directive';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { MenuComponent } from './menu/menu.component';
     BannerComponent,
     SearchComponent,
     MenuComponent,
+    RenderHightDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
