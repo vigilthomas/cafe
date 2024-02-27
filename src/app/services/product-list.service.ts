@@ -1,13 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductListService } from '../services/product-list.service';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-abc-cafe',
-  templateUrl: './abc-cafe.component.html',
-  styleUrl: './abc-cafe.component.css',
-  providers: [ProductListService],
+@Injectable({
+  providedIn: 'root',
 })
-export class ABCCafeComponent {
+export class ProductListService {
+  constructor() {}
   products = [
     {
       id: 1,
@@ -93,50 +90,6 @@ export class ABCCafeComponent {
       img: '/assets/cocktail.jpg',
     },
   ];
-  getTotalproducts() {
-    return this.products.length;
-  }
-  getDrinkproducts() {
-    return this.products.filter((products) => products.type === 'drinks')
-      .length;
-  }
-  getFoodProducts() {
-    return this.products.filter((products) => products.type === 'foods').length;
-  }
 
-  productCountRadioButton: string = 'all';
-
-  onFilteredRadioButtonChanged(data: string) {
-    this.productCountRadioButton = data;
-    console.log(data);
-  }
-  searchText: string = '';
-
-  onSearchTextEntered(searchValue: string) {
-    this.searchText = searchValue;
-    console.log(this.searchText);
-  }
-
-  itemname: string = '';
-  noOfItems = 0;
-
-  selectedItemsList: string[] = [];
-
-  onItemsAdded(itemname: string) {
-    this.selectedItemsList.push(itemname);
-    this.itemname = itemname;
-    this.noOfItems = this.selectedItemsList.length;
-  }
-
-  custname: any = '';
-  counterno: any = '';
-
-  getName(name: Event) {
-    this.custname = name;
-    console.log(this.custname + 'inside the parent');
-  }
-  getNumber(num: Event) {
-    this.counterno = num;
-    console.log(this.counterno + 'inside the parent 00');
-  }
+  
 }

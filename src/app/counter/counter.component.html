@@ -1,0 +1,17 @@
+<div class="card text-bg-dark">
+    <img src="/assets/b2.jpg" style="filter: blur(5px);height: 93vh;" class="card-img" alt="...">
+    <div class="card-img-overlay">
+        <div class="col-12 card-text d-flex justify-content-center  align-content-center mt-5">
+            <form class="d-flex flex-column align-items-center rounded-5 counter-form" role="search">
+                <p class="card-title fs-1 text-center fw-bolder mt-5">ABC_Cafe</p>
+
+                <input type="text" class="form-control fw-bolder text-center mt-5 p-2 w-50" placeholder="Your Name..."
+                    #custname required>
+                <input type="number" class="form-control fw-bolder text-center mt-5 p-2 w-50"
+                    placeholder="Counter No..." #counternum required>
+                <button class="btn btn-warning mt-4 mb-5" type="submit" (click)="onName(custname.value)"
+                    (click)="onNumber(counternum.value)">Order Now</button>
+            </form>
+        </div>
+    </div>
+</div>
