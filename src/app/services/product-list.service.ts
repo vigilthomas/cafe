@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class ProductListService {
   constructor() {}
+ 
+
   products = [
     {
       id: 1,
@@ -91,5 +93,4 @@ export class ProductListService {
     },
   ];
 
-  
 }

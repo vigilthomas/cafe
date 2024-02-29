@@ -8,16 +8,22 @@ import { Component,EventEmitter, Output } from "@angular/core";
 export class CounterComponent {
   @Output() counterno = new EventEmitter<any>();
   @Output() cname = new EventEmitter<any>();
+  @Output() orderInquiry = new EventEmitter<any>();
 
   num: any = '';
   name: any = '';
+  status: any = '';
 
   onName(custname: string) {
     this.cname.emit(custname);
     console.log(custname);
   }
-  onNumber(counternum: string) {
-    this.counterno.emit(counternum);
-    console.log(counternum);
+  onNumber(cnum: string) {
+    this.counterno.emit(cnum);
+    console.log(cnum);
+  }
+  onOrderInquiry(status: boolean) {
+    this.orderInquiry.emit(status);
+    console.log(this.onOrderInquiry);
   }
 }

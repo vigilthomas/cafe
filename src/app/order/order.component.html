@@ -1,11 +1,20 @@
-<div *ngIf="noOfItems != ''">
-    <div>
-        <p>Sir, </p>
-        <p>Your Orders are :</p>
-        <ol>
-            <li *ngFor="let item of items">
-                <h4>{{item}}</h4>
+<div>
+    <p class="fw-bolder fs-3">{{cname}},<span class="fw-bold fs-5">(Counter :{{counternum}})</span></p>
+
+    <div *ngIf="noofitems > 0;else noorders">
+        <p class="p-3">Your Orders are :</p>
+
+        <ol class="d-flex justify-content-around flex-column text-center">
+            <li *ngFor="let order of ordereditems" class="d-flex justify-content-between p-4">
+                <span class="mx-5">{{order.name}}</span>
+                <span class="text-start">{{order.price}}</span>
+
             </li>
         </ol>
+        <button class="btn btn-danger d-flex justify-content-center">Place Your Order</button>
     </div>
+
+    <ng-template #noorders>
+        <p class="alert alert-secondary border-0 rounded-0">* No Orders added !</p>
+    </ng-template>
 </div>

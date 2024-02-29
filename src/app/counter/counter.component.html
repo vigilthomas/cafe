@@ -6,11 +6,11 @@
                 <p class="card-title fs-1 text-center fw-bolder mt-5">ABC_Cafe</p>
 
                 <input type="text" class="form-control fw-bolder text-center mt-5 p-2 w-50" placeholder="Your Name..."
-                    #custname required>
+                    #custname value="Vigil" required>
                 <input type="number" class="form-control fw-bolder text-center mt-5 p-2 w-50"
-                    placeholder="Counter No..." #counternum required>
+                    placeholder="Counter No..." #counternum value="19" required>
                 <button class="btn btn-warning mt-4 mb-5" type="submit" (click)="onName(custname.value)"
-                    (click)="onNumber(counternum.value)">Order Now</button>
+                    (click)="onNumber(counternum.value)" (click)="onOrderInquiry(status=true)">Let's Go</button>
             </form>
         </div>
     </div>

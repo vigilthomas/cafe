@@ -1,55 +1,28 @@
 <div class="" style="height: 100vh;">
 
     <app-nav></app-nav>
-    <app-counter (counterno)='getNumber($event)' (cname)='getName($event)'></app-counter>
+    <app-counter (cname)='getName($event)' (counterno)='getNumber($event)'
+        (orderInquiry)='getStatus($event)'></app-counter>
 
-    <!-- <div *ngIf="custname!='' && counterno!='';else nopage"> -->
-    <div>
+    <div *ngIf="orderInquiry===true ;else nopage">
+        <!-- <div> -->
         <app-inquiry [cname]="custname" [counternum]="counterno"></app-inquiry>
-
-
-        <app-filter [allitems]="getTotalproducts()" [drinks]="getDrinkproducts()" [foods]="getFoodProducts()"
-            (filterRadioButtonSelectionChanged)="onFilteredRadioButtonChanged($event)">
-        </app-filter>
+        <hr>
+        <span class="fw-bolder fs-3 text-secondary text-center d-flex justify-content-center mt-3">Menu</span>
+        <hr>
 
         <app-beverages>
-            <div class="container">
-                <div class="row d-flex justify-content-lg-start ">
-                    <ng-container *ngFor="let product of products">
-                        <ng-container *ngIf="searchText ==='' || product.name.toLowerCase().includes(searchText)">
-                            <div class="card col-lg-3 col-md-3 col-sm-4 col-6 p-2 border-0"
-                                *ngIf="productCountRadioButton ==='all' || productCountRadioButton === product.type">
-                                <div>
-                                    <img [src]="product.img" class="imgcard rounded-4" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <span class="card-text fs-6 fw-bold mx-3 m-2">${{product.price}}</span>
-                                    <span
-                                        class="card-text fs-4 fw-bolder d-flex justify-content-around align-content-center">{{product.name}}</span>
-                                    <span class="d-flex justify-content-around align-content-center">
-                                        <button type="submit" *ngIf="product.status === 'available'; else unavailable "
-                                            (click)="onItemsAdded(product.name)"
-                                            class="btn btn-warning m-2">Add</button>
-                                    </span>
-                                    <ng-template #unavailable>
-                                        <p class="btn btn-danger m-2 disabled">*Unavailable</p>
-                                    </ng-template>
-                                </div>
-                            </div>
-                        </ng-container>
-                    </ng-container>
-                </div>
-            </div>
-            <hr>
+
         </app-beverages>
 
-        <app-order [items]="selectedItemsList" [noOfItems]="noOfItems" appRenderHight>
+        <app-order  [cname]="custname" [counternum]="counterno" appRenderHight>
         </app-order>
         <hr>
 
     </div>
-    <ng-template #nopage class="d-flex justify-content-center">
-        <p class="btn btn-danger  m-2 disabled">* Enter Your Name and Counter No...</p>
+    <ng-template #nopage class="">
+        <p class="alert alert-danger d-flex justify-content-center m-4 disabled">* Enter Your Name and Counter Number to
+            Order</p>
     </ng-template>
 
 </div>

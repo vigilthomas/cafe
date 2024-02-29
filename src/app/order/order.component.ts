@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, input } from '@angular/core';
+import { OrderService } from '../services/order.service';
 
 @Component({
   selector: 'app-order',
@@ -6,13 +7,24 @@ import { Component, Input } from '@angular/core';
   styleUrl: './order.component.css',
 })
 export class OrderComponent {
-  @Input() items: string[] = [];
-  @Input() noOfItems: any;
+  ordereditems: {
+    name: string;
+    price: string;
+  }[] = [];
 
-  ngOnChanges(){
-    this.test()
+  constructor(private OrderService: OrderService){}
+
+  @Input() cname: string = '';
+  @Input() counternum: string = '';
+
+  noofitems: number = 0;
+
+  ngDoCheck() {
+    this.ordereditems = this.OrderService.getOrderItems();
+    this.noofitems = this.OrderService.noofitems;
+    console.log('Fetched data', this.noofitems);
   }
-  test(){ 
-    console.log(this.noOfItems);
-  }
+
+  // @Input() productnames: string[] = [];
+  // @Input() productprices: string[] = [];
 }
