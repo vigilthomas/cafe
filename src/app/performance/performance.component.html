@@ -1,1 +1,63 @@
-<p>performance works!</p>
+<div>
+    <div class="d-flex justify-content-around flex-column mt-5" *ngIf="ordered; else noorderplaced">
+        <h3 class=" text-center">
+            Feedback
+        </h3>
+        <hr>
+        <div>
+            <ng-container>
+                <h3 class="text-secondary">Review for <span class="text-dark">{{ordereditem}}</span> is <span class="text-dark">{{review}}</span> .</h3>
+            </ng-container>
+        </div>
+        <div class=" d-flex justify-content-center">
+            <button type="button" class="btn btn-lg m-4 btn-outline-success" (click)="onClickGood()">Good</button>
+            <button type="button" class="btn btn-lg m-4 btn-outline-primary" (click)="onClickAverage()">Average</button>
+            <button type="button" class="btn btn-lg m-4 btn-outline-danger" (click)="onClickPoor()">Poor</button>
+        </div>
+        
+        <div class=" d-flex justify-content-center">
+            <button type="button" class="btn m-4 btn-warning" (click)="onSubmitReview()">Submit Feedback</button>
+        </div>
+    </div>
+    <!-- ---------------------------------------------------------------------- -->
+    <div class="container" *ngIf="feedbackSubmitted; ">
+
+        <div>
+            <p>Good :<span> {{good}}</span></p>
+            <p>Average :<span> {{average}}</span></p>
+            <p>Poor :<span> {{poor}}</span></p>
+        </div>
+        <div class=" d-flex justify-content-center">
+            <button type="button" class="btn m-4 btn-warning" (click)="onContinueOrdering()">Continue To
+                Order</button>
+            <a type="button" class="btn m-4 btn-dark" routerLink="/">Go Home</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Review</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let feedback of customerfeedback">
+                    <th scope="row"></th>
+                    <th>{{feedback.custname}}</th>
+                    <td>{{feedback.ordereditem}}</td>
+                    <td>{{feedback.performance}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+
+
+    <ng-template #noorderplaced>
+        <div class="alert alert-secondary border-0 rounded-0">
+            <p class=" text-center"> * No Orders Placed... ! </p>
+        </div>
+    </ng-template>
+</div>

@@ -13,6 +13,13 @@ import { InquiryComponent } from './inquiry/inquiry.component';
 import { BeveragesComponent } from './beverages/beverages.component';
 import { OrderService } from './services/order.service';
 import { ProductListService } from './services/product-list.service';
+import { PerformanceComponent } from './performance/performance.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { CustDetailsService } from './services/cust-details.service';
+import { OrderplacedComponent } from './orderplaced/orderplaced.component';
+import { FeedbackService } from './services/feedback.service';
+
+
 
 @NgModule({
   declarations: [
@@ -24,9 +31,21 @@ import { ProductListService } from './services/product-list.service';
     CounterComponent,
     InquiryComponent,
     BeveragesComponent,
+    PerformanceComponent,
+    NotfoundComponent,
+    OrderplacedComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [ProductListService,OrderService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
+  providers: [
+    ProductListService,
+    OrderService,
+    CustDetailsService,
+    FeedbackService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

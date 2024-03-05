@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { last } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,24 +13,16 @@ export class OrderService {
   }[] = [];
 
   noofitems: number = 0;
+  lastelement: any;
 
   addItemToOrder(proname: string, proprice: string) {
     // console.log(this.name + ' ' + this.price + ' in order service');
-
-    this.ordereditems.push({ name: proname, price: proprice });
-
-    console.log(
-      this.ordereditems[0]['name'] +
-        ' ' +
-        this.ordereditems[0]['price'] +
-        ' in order service'
-    );
-
+    if (this.ordereditems.length === 0) {
+      this.ordereditems.push({ name: proname, price: proprice });
+    } else {
+      this.lastelement = this.ordereditems.pop();
+      this.ordereditems.unshift({ name: proname, price: proprice });
+    }
     this.noofitems = this.ordereditems.length;
-  }
-
-  getOrderItems() {
-    console.log('getting from service', this.ordereditems);
-    return this.ordereditems;
   }
 }

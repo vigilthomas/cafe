@@ -1,30 +1,35 @@
+<nav class="navbar bg-white sticky-top">
+    <div class="container">
+        <hr>
+        <span class="fw-bolder fs-3 text-secondary text-center mt-3">Menu</span>
+    </div>
+</nav>
 <div class="container">
     <div class="row d-flex justify-content-lg-start ">
+
 
         <div class="card col-lg-3 col-md-3 col-sm-4 col-6 p-2 border-0" *ngFor="let product of products">
             <div>
                 <img [src]="product.img" class="imgcard rounded-4" alt="...">
             </div>
             <div class="card-body ">
-                <p><input  class="card-text fs-6 fw-bold p-3 border-0 w-50 rounded-5 bg-body-secondary"
+                <p><input class="card-text fs-6 fw-bold p-3 border-0 w-50 rounded-5 bg-body-secondary"
                         #inputedProductPrice value="${{product.price}}" readonly />
-                    <input type="text" class="card-text fs-4 fw-bolder border-0 d-flex justify-content-around" #inputedProductName
-                        value="{{product.name}}" readonly />
+                    <input type="text" class="card-text fs-4 fw-bolder border-0 d-flex justify-content-around"
+                        #inputedProductName value="{{product.name}}" readonly />
                 </p>
 
                 <span class="d-flex justify-content-around align-content-center">
                     <button type="submit" *ngIf="product.status === 'available'; else unavailable "
                         (click)="addToOrder(inputedProductName.value, inputedProductPrice.value)"
-                        class="btn btn-warning m-2">Add</button>
+                        (click)="onGoToOrder()" class="btn btn-warning m-2">Order</button>
                 </span>
                 <ng-template #unavailable>
                     <p class="btn btn-danger m-2 disabled">*Unavailable</p>
                 </ng-template>
             </div>
         </div>
-        <div class="d-flex justify-content-around">
-            <button class="btn btn-danger">Confirm Your Order</button>
-        </div>
+
 
     </div>
 </div>

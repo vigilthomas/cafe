@@ -3,3 +3,6 @@ a {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+.activenav {
+  background-color: rgba(255, 255, 255, 0.633);
+}

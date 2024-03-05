@@ -1,15 +1,21 @@
-<div class="" style="height: 100vh;">
+<div class="row" style="height: 97vh;">
+    <div class="col-2 bg-warning">
 
-    <app-nav></app-nav>
-    <app-counter (cname)='getName($event)' (counterno)='getNumber($event)'
+        <p class="fs-2 fw-bold d-flex justify-content-around mt-3">ABC_Cafe</p>
+        <hr>
+        <app-nav></app-nav>
+    </div>
+    <div class="col-10 m-0">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+<!--  <app-counter (cname)='getName($event)' (counterno)='getNumber($event)'
         (orderInquiry)='getStatus($event)'></app-counter>
 
     <div *ngIf="orderInquiry===true ;else nopage">
-        <!-- <div> -->
-        <app-inquiry [cname]="custname" [counternum]="counterno"></app-inquiry>
-        <hr>
-        <span class="fw-bolder fs-3 text-secondary text-center d-flex justify-content-center mt-3">Menu</span>
-        <hr>
+         //<div>//
+        <app-inquiry [cname]="custname" [counternum]="counterno" ></app-inquiry>
+        
 
         <app-beverages>
 
@@ -23,6 +29,4 @@
     <ng-template #nopage class="">
         <p class="alert alert-danger d-flex justify-content-center m-4 disabled">* Enter Your Name and Counter Number to
             Order</p>
-    </ng-template>
-
-</div>
+    </ng-template> -->

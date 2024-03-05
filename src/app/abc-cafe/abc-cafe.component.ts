@@ -1,17 +1,16 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ProductListService } from '../services/product-list.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-abc-cafe',
   templateUrl: './abc-cafe.component.html',
   styleUrl: './abc-cafe.component.css',
-  providers: [ProductListService],
 })
 export class ABCCafeComponent {
-
+  constructor(private route:Router){}
   custname: any;
   counterno: any;
-  orderInquiry: any;
+  orderInquiry:any;
 
   getName(name: Event) {
     this.custname = name;
@@ -22,7 +21,6 @@ export class ABCCafeComponent {
     console.log(this.counterno + ' inside parent');
   }
   getStatus(status: Event) {
-    this.orderInquiry=status
-    console.log(this.orderInquiry);
+    this.orderInquiry=status;
   }
 }

@@ -1,24 +1,25 @@
 <div>
-    <nav class="navbar navbar-expand-lg bg-warning">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bolder " href="#"> {{title}} </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto mx-5 fw-bolder">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <ul class="nav flex-column d-grid justify-content-center">
+        <li class="nav-item fw-bold">
+            <a class="nav-link text-dark" [routerLink]="['']" routerLinkActive=" activenav rounded-5"
+                [routerLinkActiveOptions]="{exact :true}">Home</a>
+        </li>
+
+        <li class="nav-item fw-bold">
+            <a class="nav-link text-dark" [routerLink]="['/menu',cname]"
+                routerLinkActive=" activenav rounded-5 ">Menu</a>
+        </li>
+        <li class="nav-item fw-bold">
+            <a class="nav-link text-dark" [routerLink]="['/order',cname]"
+                routerLinkActive=" activenav rounded-5 ">Orders
+                <span class="badge rounded-pill bg-danger mx-1" *ngIf="noOfItems > 0;">
+                    {{noOfItems}}
+                </span>
+            </a>
+        </li>
+        <li class="nav-item fw-bold">
+            <a class="nav-link text-dark" [routerLink]="['/feedback',cname]"
+                routerLinkActive=" activenav rounded-5 ">Feedback</a>
+        </li>
+    </ul>
 </div>

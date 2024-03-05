@@ -1,20 +1,13 @@
-<div>
-    <hr>
-    <div class="row">
-        <div class="col-md-6">
-            <img src="assets/icon.png" class="img-fluid rounded-start coffee_img" alt="...">
-        </div>
-        <div class="col-md-6">
-            <div class="">
-                <h5 class="card-title fw-bolder fs-3 text-secondary">
-                    Welcome <span class="text-dark fs-2">{{cname}},</span></h5>
-                <br>
-                <p class="fs-5">What would like to have?</p>
-                <span class="text-secondary fs-5">( Counter: {{counternum}} )</span>
-            </div>
-            <div>
-                <button class="btn btn-warning mt-5">Order Now</button>
-            </div>
+<div style="height: 87vh;" class="mt-5">
+    <img src="assets/icon.png" class="img-fluid rounded-start coffee_img" alt="...">
+
+    <div class="inquiry_div">
+        <h5 class="card-title fw-bolder fs-2 text-secondary">
+            Welcome <span class="text-dark fs-1">{{cname}},</span></h5>
+        <br>
+        <span class="text-secondary fs-5">( Counter: {{counternumber}} )</span>
+        <div>
+            <button class="btn btn-warning mt-5" (click)="onGoToMenu()">Order Now</button>
         </div>
     </div>
 </div>

@@ -1,4 +1,5 @@
-import { Component,EventEmitter, Output } from "@angular/core";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Params, Router, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-counter',
@@ -6,24 +7,37 @@ import { Component,EventEmitter, Output } from "@angular/core";
   styleUrl: './counter.component.css',
 })
 export class CounterComponent {
-  @Output() counterno = new EventEmitter<any>();
-  @Output() cname = new EventEmitter<any>();
-  @Output() orderInquiry = new EventEmitter<any>();
+  constructor(private routes: Router) {}
 
-  num: any = '';
-  name: any = '';
   status: any = '';
 
-  onName(custname: string) {
-    this.cname.emit(custname);
-    console.log(custname);
+  onGoToInquiry(name: string, num: string) {
+    if (name !== '' && num !== '') {
+      this.status = true;
+    } else {
+      this.status = false;
+    }
+    this.routes.navigate(['/inquiry', name, num, this.status]);
   }
-  onNumber(cnum: string) {
-    this.counterno.emit(cnum);
-    console.log(cnum);
-  }
-  onOrderInquiry(status: boolean) {
-    this.orderInquiry.emit(status);
-    console.log(this.onOrderInquiry);
-  }
+
+  // @Output() counterno = new EventEmitter<any>();
+  // @Output() cname = new EventEmitter<any>();
+  // @Output() orderInquiry = new EventEmitter<any>();
+
+  // num: any = '';
+  // name: any = '';
+  // status: any = '';
+
+  // onName(custname: string) {
+  //   this.cname.emit(custname);
+  //   console.log(custname);
+  // }
+  // onNumber(cnum: string) {
+  //   this.counterno.emit(cnum);
+  //   console.log(cnum);
+  // }
+  // onOrderInquiry(status: boolean) {
+  //   this.orderInquiry.emit(status);
+  //   console.log(this.onOrderInquiry);
+  // }
 }

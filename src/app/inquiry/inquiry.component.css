@@ -1,5 +1,9 @@
 .coffee_img {
-  width: fit-content;
-  height: 30%;
-  float: right;
+  width: 40%;
+  height: 90%;
+  float: left;
+  margin-left: 10%;
+}
+.inquiry_div {
+  padding: 10%;
 }
